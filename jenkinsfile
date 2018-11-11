@@ -9,6 +9,10 @@ pipeline {
         stage('Install Required') {
             steps {
                 sh '''
+                pwd
+                ls
+                virtualenv jjb
+                source jjb/bin/activate
                 pip install jenkins-job-builder==2.2.1
                 '''
             }
@@ -24,9 +28,9 @@ pipeline {
         stage('Deploy JJB') {
             steps {
                 sh '''
-                ls -al ./jjb
+                ls -al ./jjb-jobs
                 jenkins-jobs --version
-                jenkins-jobs --conf jenkins_jobs.ini update ./jjb
+                jenkins-jobs --conf jenkins_jobs.ini update ./jjb-jobs
                 '''
             }
         }
