@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Prepare/Checkout') {
             steps {
-                git branch: 'master', credentialsId: 'mac-jjb-deploy-key',url: 'git@github.com:rajashekharkethireddy/jjb.git'
+                git branch: 'master', credentialsId: 'c3e1575f-294e-4773-87ce-9249af572089',url: 'git@github.com:rajashekharkethireddy/jjb.git'
             }
         }
         stage('Install Required') {
